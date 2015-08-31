@@ -1,0 +1,2624 @@
+{
+    "baseUrl": "https://api.phraseapp.com",
+    "operations": {
+        "authorization.index": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/authorizations",
+            "description": "List all your authorizations.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                }
+            }
+        },
+        "authorization.show": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/authorizations/{id}",
+            "description": "Get details on a single authorization.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "authorization.create": {
+            "httpMethod": "POST",
+            "uri": "/api/v2/authorizations",
+            "description": "Create a new authorization.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "note": {
+                    "type": "string",
+                    "description": "A note to help you remember what the access is used for.",
+                    "location": "json",
+                    "required": true
+                },
+                "scopes": {
+                    "type": "array",
+                    "description": "A list of scopes that the access can be used for.",
+                    "location": "json",
+                    "required": false
+                },
+                "expires_at": {
+                    "type": "string",
+                    "description": "Expiration date for the authorization token. Null means no expiration date (default).",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "authorization.update": {
+            "httpMethod": "PATCH",
+            "uri": "/api/v2/authorizations/{id}",
+            "description": "Update an existing authorization.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "note": {
+                    "type": "string",
+                    "description": "A note to help you remember what the access is used for.",
+                    "location": "json",
+                    "required": true
+                },
+                "scopes": {
+                    "type": "array",
+                    "description": "A list of scopes that the access can be used for.",
+                    "location": "json",
+                    "required": false
+                },
+                "expires_at": {
+                    "type": "string",
+                    "description": "Expiration date for the authorization token. Null means no expiration date (default).",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "authorization.destroy": {
+            "httpMethod": "DELETE",
+            "uri": "/api/v2/authorizations/{id}",
+            "description": "Delete an existing authorization. API calls using that token will stop working.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "project.index": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects",
+            "description": "List all projects the current user has access to.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                }
+            }
+        },
+        "project.show": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{id}",
+            "description": "Get details on a single project.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "project.create": {
+            "httpMethod": "POST",
+            "uri": "/api/v2/projects",
+            "description": "Create a new project.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the project",
+                    "location": "json",
+                    "required": true
+                },
+                "main_format": {
+                    "type": "string",
+                    "description": "Main file format specified by its API Extension name. Used for locale downloads if no format is specified. For API Extension names of available file formats see Format Guide or our Formats API Endpoint.",
+                    "location": "json",
+                    "required": false
+                },
+                "shares_translation_memory": {
+                    "type": "boolean",
+                    "description": "Indicates whether the project should share the account's translation memoryDefault: false",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "project.update": {
+            "httpMethod": "PATCH",
+            "uri": "/api/v2/projects/{id}",
+            "description": "Update an existing project.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the project",
+                    "location": "json",
+                    "required": true
+                },
+                "main_format": {
+                    "type": "string",
+                    "description": "Main file format specified by its API Extension name. Used for locale downloads if no format is specified. For API Extension names of available file formats see Format Guide or our Formats API Endpoint.",
+                    "location": "json",
+                    "required": false
+                },
+                "shares_translation_memory": {
+                    "type": "boolean",
+                    "description": "Indicates whether the project should share the account's translation memoryDefault: false",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "project.destroy": {
+            "httpMethod": "DELETE",
+            "uri": "/api/v2/projects/{id}",
+            "description": "Delete an existing project.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "locale.index": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{project_id}/locales",
+            "description": "List all locales for the given project.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "locale.show": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{project_id}/locales/{id}",
+            "description": "Get details on a single locale for a given project.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "locale.create": {
+            "httpMethod": "POST",
+            "uri": "/api/v2/projects/{project_id}/locales",
+            "description": "Create a new locale.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Locale name",
+                    "location": "json",
+                    "required": true
+                },
+                "code": {
+                    "type": "string",
+                    "description": "Locale ISO code",
+                    "location": "json",
+                    "required": true
+                },
+                "default": {
+                    "type": "boolean",
+                    "description": "Indicates whether locale is the default locale. If set to true, the previous default locale the project is no longer the default locale.Default: false",
+                    "location": "json",
+                    "required": false
+                },
+                "main": {
+                    "type": "boolean",
+                    "description": "Indicates whether locale is a main locale.Default: false",
+                    "location": "json",
+                    "required": false
+                },
+                "rtl": {
+                    "type": "boolean",
+                    "description": "Indicates whether locale is a RTL (Right-to-Left) locale.Default: auto-detected",
+                    "location": "json",
+                    "required": false
+                },
+                "source_locale_id": {
+                    "type": "string",
+                    "description": "Source locale. Can be the name or public id of the locale. Preferred is the public id.",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "locale.update": {
+            "httpMethod": "PATCH",
+            "uri": "/api/v2/projects/{project_id}/locales/{id}",
+            "description": "Update an existing locale.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Locale name",
+                    "location": "json",
+                    "required": true
+                },
+                "code": {
+                    "type": "string",
+                    "description": "Locale ISO code",
+                    "location": "json",
+                    "required": true
+                },
+                "default": {
+                    "type": "boolean",
+                    "description": "Indicates whether locale is the default locale. If set to true, the previous default locale the project is no longer the default locale.Default: false",
+                    "location": "json",
+                    "required": false
+                },
+                "main": {
+                    "type": "boolean",
+                    "description": "Indicates whether locale is a main locale.Default: false",
+                    "location": "json",
+                    "required": false
+                },
+                "rtl": {
+                    "type": "boolean",
+                    "description": "Indicates whether locale is a RTL (Right-to-Left) locale.Default: auto-detected",
+                    "location": "json",
+                    "required": false
+                },
+                "source_locale_id": {
+                    "type": "string",
+                    "description": "Source locale. Can be the name or public id of the locale. Preferred is the public id.",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "locale.destroy": {
+            "httpMethod": "DELETE",
+            "uri": "/api/v2/projects/{project_id}/locales/{id}",
+            "description": "Delete an existing locale.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "locale.download": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{project_id}/locales/{id}/download",
+            "description": "Download a locale in a specific file format.",
+            "responseModel": "ResponseTextObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "file_format": {
+                    "type": "string",
+                    "description": "File format name. See the format guide for all supported file formats.",
+                    "location": "json",
+                    "required": true
+                },
+                "tag": {
+                    "type": "string",
+                    "description": "Limit result to keys tagged with the given tag (identified by its name).",
+                    "location": "json",
+                    "required": false
+                },
+                "include_empty_translations": {
+                    "type": "boolean",
+                    "description": "Indicates whether keys without translations should be included in the output as well.Default: false",
+                    "location": "json",
+                    "required": false
+                },
+                "keep_notranslate_tags": {
+                    "type": "boolean",
+                    "description": "Indicates whether [NOTRANSLATE] tags should be kept.Default: false",
+                    "location": "json",
+                    "required": false
+                },
+                "convert_emoji": {
+                    "type": "boolean",
+                    "description": "Indicates whether Emoji symbols should be converted to actual Emojis. Working with Emojis.Default: false",
+                    "location": "json",
+                    "required": false
+                },
+                "format_options": {
+                    "type": "string",
+                    "description": "Additional options available for specific formats. Currently only supports option escape_single_quotes: true/false for properties format.",
+                    "location": "json",
+                    "required": false
+                },
+                "encoding": {
+                    "type": "string",
+                    "description": "Specify an encoding for the locale file. See the format guide for a list of supported encodings for each format.",
+                    "location": "json",
+                    "required": false
+                },
+                "skip_unverified_translations": {
+                    "type": "boolean",
+                    "description": "Indicates whether the locale file should skip all unverified translations.Default: false",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "key.index": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{project_id}/keys",
+            "description": "List all keys for the given project. Alternatively you can POST requests to /search.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "sort": {
+                    "type": "string",
+                    "description": "Sort by field. Can be one of: name, created_at, updated_at.Default: name",
+                    "location": "json",
+                    "required": false
+                },
+                "order": {
+                    "type": "string",
+                    "description": "Order direction. Can be one of: asc, desc.Default: asc",
+                    "location": "json",
+                    "required": false
+                },
+                "q": {
+                    "type": "string",
+                    "description": "Specify a query to find keys by name (including wildcards). The following qualifiers are also supported in the search term:name:key_name for text queries on key names translated:{true|false} for translation status (also requires locale_id to be specified) updated_at:{>=| for date range queries  Find more examples here.",
+                    "location": "json",
+                    "required": false
+                },
+                "locale_id": {
+                    "type": "string",
+                    "description": "Locale used to determine the translation state of a key when filtering for untranslated or translated keys.",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "key.search": {
+            "httpMethod": "POST",
+            "uri": "/api/v2/projects/{project_id}/keys/search",
+            "description": "Search keys for the given project matching query.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "sort": {
+                    "type": "string",
+                    "description": "Sort by field. Can be one of: name, created_at, updated_at.Default: name",
+                    "location": "json",
+                    "required": false
+                },
+                "order": {
+                    "type": "string",
+                    "description": "Order direction. Can be one of: asc, desc.Default: asc",
+                    "location": "json",
+                    "required": false
+                },
+                "q": {
+                    "type": "string",
+                    "description": "Specify a query to find keys by name (including wildcards). The following qualifiers are also supported in the search term:name:key_name for text queries on key names translated:{true|false} for translation status (also requires locale_id to be specified) updated_at:{>=| for date range queries  Find more examples here.",
+                    "location": "json",
+                    "required": false
+                },
+                "locale_id": {
+                    "type": "string",
+                    "description": "Locale used to determine the translation state of a key when filtering for untranslated or translated keys.",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "key.show": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{project_id}/keys/{id}",
+            "description": "Get details on a single key for a given project.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "key.create": {
+            "httpMethod": "POST",
+            "uri": "/api/v2/projects/{project_id}/keys",
+            "description": "Create a new key.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Key name",
+                    "location": "json",
+                    "required": true
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Key description (usually includes contextual information for translators)",
+                    "location": "json",
+                    "required": false
+                },
+                "plural": {
+                    "type": "boolean",
+                    "description": "Indicates whether key supports pluralizationDefault: false",
+                    "location": "json",
+                    "required": false
+                },
+                "name_plural": {
+                    "type": "string",
+                    "description": "Plural name for the key (used in some file formats, e.g. Gettext)",
+                    "location": "json",
+                    "required": false
+                },
+                "data_type": {
+                    "type": "string",
+                    "description": "Type of the key. Can be one of the following: string, number, boolean, number, array.Default: string",
+                    "location": "json",
+                    "required": false
+                },
+                "tags": {
+                    "type": "string",
+                    "description": "List of tags separated by comma to be associated with the key.",
+                    "location": "json",
+                    "required": false
+                },
+                "max_characters_allowed": {
+                    "type": "integer",
+                    "description": "Max. number of characters translations for this key can have.",
+                    "location": "json",
+                    "required": false
+                },
+                "screenshot": {
+                    "type": "string",
+                    "description": "Screenshot/image for the key.",
+                    "location": "json",
+                    "required": false
+                },
+                "remove_screenshot": {
+                    "type": "boolean",
+                    "description": "Indicates whether the screenshot will be deleted.Default: false",
+                    "location": "json",
+                    "required": false
+                },
+                "unformatted": {
+                    "type": "boolean",
+                    "description": "Indicates whether the key should be exported as \"unformatted\". Supported by Android XML and other formats.Default: false",
+                    "location": "json",
+                    "required": false
+                },
+                "xml_space_preserve": {
+                    "type": "boolean",
+                    "description": "Indicates whether the key should be exported with \"xml:space=preserve\". Supported by several XML-based formats.Default: false",
+                    "location": "json",
+                    "required": false
+                },
+                "original_file": {
+                    "type": "string",
+                    "description": "Original file attribute. Used in some formats, e.g. XLIFF.",
+                    "location": "json",
+                    "required": false
+                },
+                "localized_format_string": {
+                    "type": "string",
+                    "description": "NSStringLocalizedFormatKey attribute. Used in .stringsdict format.",
+                    "location": "json",
+                    "required": false
+                },
+                "localized_format_key": {
+                    "type": "string",
+                    "description": "NSStringLocalizedFormatKey attribute. Used in .stringsdict format.",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "key.update": {
+            "httpMethod": "PATCH",
+            "uri": "/api/v2/projects/{project_id}/keys/{id}",
+            "description": "Update an existing key.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Key name",
+                    "location": "json",
+                    "required": true
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Key description (usually includes contextual information for translators)",
+                    "location": "json",
+                    "required": false
+                },
+                "plural": {
+                    "type": "boolean",
+                    "description": "Indicates whether key supports pluralizationDefault: false",
+                    "location": "json",
+                    "required": false
+                },
+                "name_plural": {
+                    "type": "string",
+                    "description": "Plural name for the key (used in some file formats, e.g. Gettext)",
+                    "location": "json",
+                    "required": false
+                },
+                "data_type": {
+                    "type": "string",
+                    "description": "Type of the key. Can be one of the following: string, number, boolean, number, array.Default: string",
+                    "location": "json",
+                    "required": false
+                },
+                "tags": {
+                    "type": "string",
+                    "description": "List of tags separated by comma to be associated with the key.",
+                    "location": "json",
+                    "required": false
+                },
+                "max_characters_allowed": {
+                    "type": "integer",
+                    "description": "Max. number of characters translations for this key can have.",
+                    "location": "json",
+                    "required": false
+                },
+                "screenshot": {
+                    "type": "string",
+                    "description": "Screenshot/image for the key.",
+                    "location": "json",
+                    "required": false
+                },
+                "remove_screenshot": {
+                    "type": "boolean",
+                    "description": "Indicates whether the screenshot will be deleted.Default: false",
+                    "location": "json",
+                    "required": false
+                },
+                "unformatted": {
+                    "type": "boolean",
+                    "description": "Indicates whether the key should be exported as \"unformatted\". Supported by Android XML and other formats.Default: false",
+                    "location": "json",
+                    "required": false
+                },
+                "xml_space_preserve": {
+                    "type": "boolean",
+                    "description": "Indicates whether the key should be exported with \"xml:space=preserve\". Supported by several XML-based formats.Default: false",
+                    "location": "json",
+                    "required": false
+                },
+                "original_file": {
+                    "type": "string",
+                    "description": "Original file attribute. Used in some formats, e.g. XLIFF.",
+                    "location": "json",
+                    "required": false
+                },
+                "localized_format_string": {
+                    "type": "string",
+                    "description": "NSStringLocalizedFormatKey attribute. Used in .stringsdict format.",
+                    "location": "json",
+                    "required": false
+                },
+                "localized_format_key": {
+                    "type": "string",
+                    "description": "NSStringLocalizedFormatKey attribute. Used in .stringsdict format.",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "key.destroy": {
+            "httpMethod": "DELETE",
+            "uri": "/api/v2/projects/{project_id}/keys/{id}",
+            "description": "Delete an existing key.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "key.destroyList": {
+            "httpMethod": "DELETE",
+            "uri": "/api/v2/projects/{project_id}/keys",
+            "description": "Delete all keys matching query. Same constraints as list.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "q": {
+                    "type": "string",
+                    "description": "Specify a query to find keys by name (including wildcards). The following qualifiers are also supported in the search term:name:key_name for text queries on key names translated:{true|false} for translation status (also requires locale_id to be specified) updated_at:{>=| for date range queries  Find more examples here.",
+                    "location": "json",
+                    "required": false
+                },
+                "locale_id": {
+                    "type": "string",
+                    "description": "Locale used to determine the translation state of a key when filtering for untranslated or translated keys.",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "key.tag": {
+            "httpMethod": "PATCH",
+            "uri": "/api/v2/projects/{project_id}/keys/tag",
+            "description": "Tags all keys matching query. Same constraints as list.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "q": {
+                    "type": "string",
+                    "description": "Specify a query to find keys by name (including wildcards). The following qualifiers are also supported in the search term:name:key_name for text queries on key names translated:{true|false} for translation status (also requires locale_id to be specified) updated_at:{>=| for date range queries  Find more examples here.",
+                    "location": "json",
+                    "required": false
+                },
+                "locale_id": {
+                    "type": "string",
+                    "description": "Locale used to determine the translation state of a key when filtering for untranslated or translated keys.",
+                    "location": "json",
+                    "required": false
+                },
+                "tags": {
+                    "type": "string",
+                    "description": "Tag or comma-separated list of tags to add to the matching collection of keys",
+                    "location": "json",
+                    "required": true
+                }
+            }
+        },
+        "key.untag": {
+            "httpMethod": "PATCH",
+            "uri": "/api/v2/projects/{project_id}/keys/untag",
+            "description": "Removes specified tags from keys matching query.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "q": {
+                    "type": "string",
+                    "description": "Specify a query to find keys by name (including wildcards). The following qualifiers are also supported in the search term:name:key_name for text queries on key names translated:{true|false} for translation status (also requires locale_id to be specified) updated_at:{>=| for date range queries  Find more examples here.",
+                    "location": "json",
+                    "required": false
+                },
+                "locale_id": {
+                    "type": "string",
+                    "description": "Locale used to determine the translation state of a key when filtering for untranslated or translated keys.",
+                    "location": "json",
+                    "required": false
+                },
+                "tags": {
+                    "type": "string",
+                    "description": "Tag or comma-separated list of tags to add to the matching collection of keys",
+                    "location": "json",
+                    "required": true
+                }
+            }
+        },
+        "upload.create": {
+            "httpMethod": "POST",
+            "uri": "/api/v2/projects/{project_id}/uploads",
+            "description": "Upload a new language file. Creates necessary resources in your project.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "file": {
+                    "type": "string",
+                    "description": "File to be imported",
+                    "location": "json",
+                    "required": true
+                },
+                "file_format": {
+                    "type": "string",
+                    "description": "File format. Auto-detected when possible and not specified.",
+                    "location": "json",
+                    "required": false
+                },
+                "locale_id": {
+                    "type": "string",
+                    "description": "Locale of the file's content. Can be the name or public id of the locale. Preferred is the public id.",
+                    "location": "json",
+                    "required": false
+                },
+                "tags": {
+                    "type": "string",
+                    "description": "List of tags separated by comma to be associated with the new keys contained in the upload.",
+                    "location": "json",
+                    "required": false
+                },
+                "update_translations": {
+                    "type": "boolean",
+                    "description": "Indicates whether existing translations should be updated with the file content.Default: false",
+                    "location": "json",
+                    "required": false
+                },
+                "convert_emoji": {
+                    "type": "boolean",
+                    "description": "Indicates whether the file contains Emoji symbols that should be converted. Working with Emojis.Default: false",
+                    "location": "json",
+                    "required": false
+                },
+                "skip_upload_tags": {
+                    "type": "boolean",
+                    "description": "Indicates whether the upload should not create upload tags.Default: false",
+                    "location": "json",
+                    "required": false
+                },
+                "skip_unverification": {
+                    "type": "boolean",
+                    "description": "Indicates whether the upload should unverify updated translations.Default: false",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "upload.show": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{project_id}/uploads/{id}",
+            "description": "View details and summary for a single upload.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "upload.index": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{project_id}/uploads",
+            "description": "List all uploads for the given project.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "translation.index": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{project_id}/translations",
+            "description": "List translations for the given project. Alternatively, POST request to /search",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "sort": {
+                    "type": "string",
+                    "description": "Sort criteria. Can be one of: key_name, created_at, updated_at.Default: key_name",
+                    "location": "json",
+                    "required": false
+                },
+                "order": {
+                    "type": "string",
+                    "description": "Order direction. Can be one of: asc, desc.Default: asc",
+                    "location": "json",
+                    "required": false
+                },
+                "q": {
+                    "type": "string",
+                    "description": "Specify a query to find translations by content (including wildcards). The following qualifiers are supported in the query:tags:XYZ for tags on the translation unverified:{true|false} for verification status updated_at:{>=| for date range queries  Find more examples here.",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "translation.indexLocale": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{project_id}/locales/{locale_id}/translations",
+            "description": "List translations for a specific locale.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "locale_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "sort": {
+                    "type": "string",
+                    "description": "Sort criteria. Can be one of: key_name, created_at, updated_at.Default: key_name",
+                    "location": "json",
+                    "required": false
+                },
+                "order": {
+                    "type": "string",
+                    "description": "Order direction. Can be one of: asc, desc.Default: asc",
+                    "location": "json",
+                    "required": false
+                },
+                "q": {
+                    "type": "string",
+                    "description": "Specify a query to find translations by content (including wildcards). The following qualifiers are supported in the query:tags:XYZ for tags on the translation unverified:{true|false} for verification status updated_at:{>=| for date range queries  Find more examples here.",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "translation.indexKeys": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{project_id}/keys/{key_id}/translations",
+            "description": "List translations for a specific key.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "key_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "sort": {
+                    "type": "string",
+                    "description": "Sort criteria. Can be one of: key_name, created_at, updated_at.Default: key_name",
+                    "location": "json",
+                    "required": false
+                },
+                "order": {
+                    "type": "string",
+                    "description": "Order direction. Can be one of: asc, desc.Default: asc",
+                    "location": "json",
+                    "required": false
+                },
+                "q": {
+                    "type": "string",
+                    "description": "Specify a query to find translations by content (including wildcards). The following qualifiers are supported in the query:tags:XYZ for tags on the translation unverified:{true|false} for verification status updated_at:{>=| for date range queries  Find more examples here.",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "translation.search": {
+            "httpMethod": "POST",
+            "uri": "/api/v2/projects/{project_id}/translations/search",
+            "description": "List translations for the given project if you exceed GET request limitations on translations list.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "sort": {
+                    "type": "string",
+                    "description": "Sort criteria. Can be one of: key_name, created_at, updated_at.Default: key_name",
+                    "location": "json",
+                    "required": false
+                },
+                "order": {
+                    "type": "string",
+                    "description": "Order direction. Can be one of: asc, desc.Default: asc",
+                    "location": "json",
+                    "required": false
+                },
+                "q": {
+                    "type": "string",
+                    "description": "Specify a query to find translations by content (including wildcards). The following qualifiers are supported in the query:tags:XYZ for tags on the translation unverified:{true|false} for verification status updated_at:{>=| for date range queries  Find more examples here.",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "translation.show": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{project_id}/translations/{id}",
+            "description": "Get details on a single translation.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "translation.create": {
+            "httpMethod": "POST",
+            "uri": "/api/v2/projects/{project_id}/translations",
+            "description": "Create a translation.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "locale_id": {
+                    "type": "string",
+                    "description": "Locale. Can be the name or public id of the locale. Preferred is the public id.",
+                    "location": "json",
+                    "required": true
+                },
+                "key_id": {
+                    "type": "string",
+                    "description": "Key",
+                    "location": "json",
+                    "required": true
+                },
+                "content": {
+                    "type": "string",
+                    "description": "Translation content",
+                    "location": "json",
+                    "required": true
+                },
+                "plural_suffix": {
+                    "type": "string",
+                    "description": "Plural suffix. Can be one of: zero, one, two, few, many, other.Default: <blank>",
+                    "location": "json",
+                    "required": false
+                },
+                "unverified": {
+                    "type": "boolean",
+                    "description": "Indicates whether translation is unverified.Default: false",
+                    "location": "json",
+                    "required": false
+                },
+                "excluded": {
+                    "type": "boolean",
+                    "description": "Indicates whether translation is excluded.Default: false",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "translation.update": {
+            "httpMethod": "PATCH",
+            "uri": "/api/v2/projects/{project_id}/translations/{id}",
+            "description": "Update an existing translation.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "content": {
+                    "type": "string",
+                    "description": "Translation content",
+                    "location": "json",
+                    "required": true
+                },
+                "plural_suffix": {
+                    "type": "string",
+                    "description": "Plural suffix. Can be one of: zero, one, two, few, many, other.Default: <blank>",
+                    "location": "json",
+                    "required": false
+                },
+                "unverified": {
+                    "type": "boolean",
+                    "description": "Indicates whether translation is unverified.Default: false",
+                    "location": "json",
+                    "required": false
+                },
+                "excluded": {
+                    "type": "boolean",
+                    "description": "Indicates whether translation is excluded.Default: false",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "translation.verify": {
+            "httpMethod": "PATCH",
+            "uri": "/api/v2/projects/{project_id}/translations/verify",
+            "description": "Verify translations matching query.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "q": {
+                    "type": "string",
+                    "description": "Specify a query to find translations by content (including wildcards). The following qualifiers are supported in the query:tags:XYZ for tags on the translation unverified:{true|false} for verification status updated_at:{>=| for date range queries  Find more examples here.",
+                    "location": "json",
+                    "required": false
+                },
+                "sort": {
+                    "type": "string",
+                    "description": "Sort criteria. Can be one of: key_name, created_at, updated_at.Default: key_name",
+                    "location": "json",
+                    "required": false
+                },
+                "order": {
+                    "type": "string",
+                    "description": "Order direction. Can be one of: asc, desc.Default: asc",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "translation.unverify": {
+            "httpMethod": "PATCH",
+            "uri": "/api/v2/projects/{project_id}/translations/unverify",
+            "description": "Mark translations matching query as unverified.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "q": {
+                    "type": "string",
+                    "description": "Specify a query to find translations by content (including wildcards). The following qualifiers are supported in the query:tags:XYZ for tags on the translation unverified:{true|false} for verification status updated_at:{>=| for date range queries  Find more examples here.",
+                    "location": "json",
+                    "required": false
+                },
+                "sort": {
+                    "type": "string",
+                    "description": "Sort criteria. Can be one of: key_name, created_at, updated_at.Default: key_name",
+                    "location": "json",
+                    "required": false
+                },
+                "order": {
+                    "type": "string",
+                    "description": "Order direction. Can be one of: asc, desc.Default: asc",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "translation.exclude": {
+            "httpMethod": "PATCH",
+            "uri": "/api/v2/projects/{project_id}/translations/exclude",
+            "description": "Exclude translations matching query from locale export.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "q": {
+                    "type": "string",
+                    "description": "Specify a query to find translations by content (including wildcards). The following qualifiers are supported in the query:tags:XYZ for tags on the translation unverified:{true|false} for verification status updated_at:{>=| for date range queries  Find more examples here.",
+                    "location": "json",
+                    "required": false
+                },
+                "sort": {
+                    "type": "string",
+                    "description": "Sort criteria. Can be one of: key_name, created_at, updated_at.Default: key_name",
+                    "location": "json",
+                    "required": false
+                },
+                "order": {
+                    "type": "string",
+                    "description": "Order direction. Can be one of: asc, desc.Default: asc",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "translation.include": {
+            "httpMethod": "PATCH",
+            "uri": "/api/v2/projects/{project_id}/translations/include",
+            "description": "Include translations matching query in locale export.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "q": {
+                    "type": "string",
+                    "description": "Specify a query to find translations by content (including wildcards). The following qualifiers are supported in the query:tags:XYZ for tags on the translation unverified:{true|false} for verification status updated_at:{>=| for date range queries  Find more examples here.",
+                    "location": "json",
+                    "required": false
+                },
+                "sort": {
+                    "type": "string",
+                    "description": "Sort criteria. Can be one of: key_name, created_at, updated_at.Default: key_name",
+                    "location": "json",
+                    "required": false
+                },
+                "order": {
+                    "type": "string",
+                    "description": "Order direction. Can be one of: asc, desc.Default: asc",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "tag.index": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{project_id}/tags",
+            "description": "List all tags for the given project.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "tag.show": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{project_id}/tags/{name}",
+            "description": "Get details and progress information on a single tag for a given project.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "tag.create": {
+            "httpMethod": "POST",
+            "uri": "/api/v2/projects/{project_id}/tags",
+            "description": "Create a new tag.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the tag",
+                    "location": "json",
+                    "required": true
+                }
+            }
+        },
+        "tag.destroy": {
+            "httpMethod": "DELETE",
+            "uri": "/api/v2/projects/{project_id}/tags/{name}",
+            "description": "Delete an existing tag.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "comment.index": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{project_id}/keys/{key_id}/comments",
+            "description": "List all comments for a key.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "key_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "comment.show": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{project_id}/keys/{key_id}/comments/{id}",
+            "description": "Get details on a single comment.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "key_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "comment.create": {
+            "httpMethod": "POST",
+            "uri": "/api/v2/projects/{project_id}/keys/{key_id}/comments",
+            "description": "Create a new comment for a key.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "key_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Comment message",
+                    "location": "json",
+                    "required": true
+                }
+            }
+        },
+        "comment.update": {
+            "httpMethod": "PATCH",
+            "uri": "/api/v2/projects/{project_id}/keys/{key_id}/comments/{id}",
+            "description": "Update an existing comment.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "key_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Comment message",
+                    "location": "json",
+                    "required": true
+                }
+            }
+        },
+        "comment.destroy": {
+            "httpMethod": "DELETE",
+            "uri": "/api/v2/projects/{project_id}/keys/{key_id}/comments/{id}",
+            "description": "Delete an existing comment.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "key_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "comment.markAsRead": {
+            "httpMethod": "PATCH",
+            "uri": "/api/v2/projects/{project_id}/keys/{key_id}/comments/{id}/read",
+            "description": "Mark a comment as read.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "key_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "comment.unmarkAsRead": {
+            "httpMethod": "DELETE",
+            "uri": "/api/v2/projects/{project_id}/keys/{key_id}/comments/{id}/read",
+            "description": "Mark a comment as unread.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "key_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "comment.checkIfRead": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{project_id}/keys/{key_id}/comments/{id}/read",
+            "description": "Check if comment was marked as read. Returns 204 if read, 404 if unread.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "key_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "order.categories": {
+            "httpMethod": "List",
+            "uri": "/apiof categories [TextMaster]",
+            "description": "When ordering translations from TextMaster, you need to specify a category ID along with your order. See this list for information on the category ID and their equivalent description.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                }
+            }
+        },
+        "order.index": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{project_id}/orders",
+            "description": "List all orders for the given project.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "order.show": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{project_id}/orders/{id}",
+            "description": "Get details on a single order.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "order.create": {
+            "httpMethod": "POST",
+            "uri": "/api/v2/projects/{project_id}/orders",
+            "description": "Create a new order. Access token scope must include orders.create.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "lsp": {
+                    "type": "string",
+                    "description": "Name of the LSP that should process this order. Can be one of gengo, textmaster.",
+                    "location": "json",
+                    "required": true
+                },
+                "source_locale_id": {
+                    "type": "string",
+                    "description": "Source locale for the order. Can be the name or public id of the source locale. Preferred is the public id.",
+                    "location": "json",
+                    "required": true
+                },
+                "target_locale_ids": {
+                    "type": "array",
+                    "description": "List of target locales you want the source content translate to. Can be the name or public id of the target locales. Preferred is the public id.",
+                    "location": "json",
+                    "required": true
+                },
+                "translation_type": {
+                    "type": "string",
+                    "description": "Name of the quality level, availability depends on the LSP. Can be one of:  standard, pro (for orders processed by Gengo) and one of regular, premium, enterprise (for orders processed by TextMaster)",
+                    "location": "json",
+                    "required": true
+                },
+                "tag": {
+                    "type": "string",
+                    "description": "Tag you want to order translations for.",
+                    "location": "json",
+                    "required": false
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Message that is displayed to the translators for description.",
+                    "location": "json",
+                    "required": false
+                },
+                "styleguide_id": {
+                    "type": "string",
+                    "description": "Style guide for translators to be sent with the order.",
+                    "location": "json",
+                    "required": false
+                },
+                "unverify_translations_upon_delivery": {
+                    "type": "boolean",
+                    "description": "Unverify translations upon delivery.Default: false",
+                    "location": "json",
+                    "required": false
+                },
+                "include_untranslated_keys": {
+                    "type": "boolean",
+                    "description": "Order translations for keys with untranslated content in the selected target locales.Default: true",
+                    "location": "json",
+                    "required": false
+                },
+                "include_unverified_translations": {
+                    "type": "boolean",
+                    "description": "Order translations for keys with unverified content in the selected target locales.Default: false",
+                    "location": "json",
+                    "required": false
+                },
+                "category": {
+                    "type": "string",
+                    "description": "Category to use (required for orders processed by TextMaster). Category List",
+                    "location": "json",
+                    "required": true
+                },
+                "quality": {
+                    "type": "boolean",
+                    "description": "Extra proofreading option to ensure consistency in vocabulary and style. Only available for orders processed by TextMaster.Default: false",
+                    "location": "json",
+                    "required": false
+                },
+                "priority": {
+                    "type": "boolean",
+                    "description": "Indicates whether the priority option should be ordered which decreases turnaround time by 30%. Available only for orders processed by TextMaster.Default: false",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "order.confirm": {
+            "httpMethod": "PATCH",
+            "uri": "/api/v2/projects/{project_id}/orders/{id}/confirm",
+            "description": "Confirm an existing order and send it to the provider for translation. Same constraints as for create.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "order.destroy": {
+            "httpMethod": "DELETE",
+            "uri": "/api/v2/projects/{project_id}/orders/{id}",
+            "description": "Cancel an existing order. Must not yet be confirmed.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "version.index": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{project_id}/translations/{translation_id}/versions",
+            "description": "List all versions for the given translation.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "translation_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "version.show": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{project_id}/translations/{translation_id}/versions/{id}",
+            "description": "Get details on a single version.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "translation_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "blacklist.index": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{project_id}/blacklisted_keys",
+            "description": "List all rules for blacklisting keys for the given project.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "blacklist.show": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{project_id}/blacklisted_keys/{id}",
+            "description": "Get details on a single rule for blacklisting keys for a given project.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "blacklist.create": {
+            "httpMethod": "POST",
+            "uri": "/api/v2/projects/{project_id}/blacklisted_keys",
+            "description": "Create a new rule for blacklisting keys.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Blacklisted key name",
+                    "location": "json",
+                    "required": true
+                }
+            }
+        },
+        "blacklist.update": {
+            "httpMethod": "PATCH",
+            "uri": "/api/v2/projects/{project_id}/blacklisted_keys/{id}",
+            "description": "Update an existing rule for blacklisting keys.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Blacklisted key name",
+                    "location": "json",
+                    "required": true
+                }
+            }
+        },
+        "blacklist.destroy": {
+            "httpMethod": "DELETE",
+            "uri": "/api/v2/projects/{project_id}/blacklisted_keys/{id}",
+            "description": "Delete an existing rule for blacklisting keys.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "styleGuide.index": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{project_id}/styleguides",
+            "description": "List all styleguides for the given project.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "styleGuide.show": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/projects/{project_id}/styleguides/{id}",
+            "description": "Get details on a single style guide.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "styleGuide.create": {
+            "httpMethod": "POST",
+            "uri": "/api/v2/projects/{project_id}/styleguides",
+            "description": "Create a new style guide.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "title": {
+                    "type": "string",
+                    "description": "Style guide title",
+                    "location": "json",
+                    "required": true
+                },
+                "audience": {
+                    "type": "string",
+                    "description": "Audience description",
+                    "location": "json",
+                    "required": false
+                },
+                "target_audience": {
+                    "type": "string",
+                    "description": "Can be one of: not_specified, children, teenager, young_adults, adults, old_adults.",
+                    "location": "json",
+                    "required": false
+                },
+                "grammatical_person": {
+                    "type": "string",
+                    "description": "Can be one of: not_specified, first_person_singular, second_person_singular, third_person_singular_masculine, third_person_singular_feminine, third_person_singular_neuter, first_person_plural, second_person_plural, third_person_plural.",
+                    "location": "json",
+                    "required": false
+                },
+                "vocabulary_type": {
+                    "type": "string",
+                    "description": "Can be one of: not_specified, popular, technical, fictional.",
+                    "location": "json",
+                    "required": false
+                },
+                "business": {
+                    "type": "string",
+                    "description": "Description of the business",
+                    "location": "json",
+                    "required": false
+                },
+                "company_branding": {
+                    "type": "string",
+                    "description": "Company branding to remain consistent.",
+                    "location": "json",
+                    "required": false
+                },
+                "formatting": {
+                    "type": "string",
+                    "description": "Formatting requirements and character limitations.",
+                    "location": "json",
+                    "required": false
+                },
+                "glossary_terms": {
+                    "type": "string",
+                    "description": "List of terms and/or phrases that need to be translated consistently.",
+                    "location": "json",
+                    "required": false
+                },
+                "grammar_consistency": {
+                    "type": "string",
+                    "description": "Formal or informal pronouns, consistent conjugation, grammatical gender",
+                    "location": "json",
+                    "required": false
+                },
+                "literal_translation": {
+                    "type": "string",
+                    "description": "Can be one of: Cultural/Conversational, Literal, Neutral.",
+                    "location": "json",
+                    "required": false
+                },
+                "overall_tone": {
+                    "type": "string",
+                    "description": "Tone requirement descriptions",
+                    "location": "json",
+                    "required": false
+                },
+                "samples": {
+                    "type": "string",
+                    "description": "Provide links to sample product pages, FAQ pages, etc. to give the translator a point of reference. You can also provide past translations. Even snippets or short paragraphs are helpful for maintaining consistency.",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "styleGuide.update": {
+            "httpMethod": "PATCH",
+            "uri": "/api/v2/projects/{project_id}/styleguides/{id}",
+            "description": "Update an existing style guide.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "title": {
+                    "type": "string",
+                    "description": "Style guide title",
+                    "location": "json",
+                    "required": true
+                },
+                "audience": {
+                    "type": "string",
+                    "description": "Audience description",
+                    "location": "json",
+                    "required": false
+                },
+                "target_audience": {
+                    "type": "string",
+                    "description": "Can be one of: not_specified, children, teenager, young_adults, adults, old_adults.",
+                    "location": "json",
+                    "required": false
+                },
+                "grammatical_person": {
+                    "type": "string",
+                    "description": "Can be one of: not_specified, first_person_singular, second_person_singular, third_person_singular_masculine, third_person_singular_feminine, third_person_singular_neuter, first_person_plural, second_person_plural, third_person_plural.",
+                    "location": "json",
+                    "required": false
+                },
+                "vocabulary_type": {
+                    "type": "string",
+                    "description": "Can be one of: not_specified, popular, technical, fictional.",
+                    "location": "json",
+                    "required": false
+                },
+                "business": {
+                    "type": "string",
+                    "description": "Description of the business",
+                    "location": "json",
+                    "required": false
+                },
+                "company_branding": {
+                    "type": "string",
+                    "description": "Company branding to remain consistent.",
+                    "location": "json",
+                    "required": false
+                },
+                "formatting": {
+                    "type": "string",
+                    "description": "Formatting requirements and character limitations.",
+                    "location": "json",
+                    "required": false
+                },
+                "glossary_terms": {
+                    "type": "string",
+                    "description": "List of terms and/or phrases that need to be translated consistently.",
+                    "location": "json",
+                    "required": false
+                },
+                "grammar_consistency": {
+                    "type": "string",
+                    "description": "Formal or informal pronouns, consistent conjugation, grammatical gender",
+                    "location": "json",
+                    "required": false
+                },
+                "literal_translation": {
+                    "type": "string",
+                    "description": "Can be one of: Cultural/Conversational, Literal, Neutral.",
+                    "location": "json",
+                    "required": false
+                },
+                "overall_tone": {
+                    "type": "string",
+                    "description": "Tone requirement descriptions",
+                    "location": "json",
+                    "required": false
+                },
+                "samples": {
+                    "type": "string",
+                    "description": "Provide links to sample product pages, FAQ pages, etc. to give the translator a point of reference. You can also provide past translations. Even snippets or short paragraphs are helpful for maintaining consistency.",
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
+        "styleGuide.destroy": {
+            "httpMethod": "DELETE",
+            "uri": "/api/v2/projects/{project_id}/styleguides/{id}",
+            "description": "Delete an existing style guide.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "user.user": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/user",
+            "description": "Show details for current User.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                }
+            }
+        },
+        "format.index": {
+            "httpMethod": "GET",
+            "uri": "/api/v2/formats",
+            "description": "Get a handy list of all localization file formats supported in PhraseApp.",
+            "responseModel": "ResponseObject",
+            "parameters": {
+                "token": {
+                    "type": "string",
+                    "location": "header",
+                    "sentAs": "Authorization",
+                    "required": true
+                }
+            }
+        }
+    },
+    "models": {
+        "ResponseObject": {
+            "type": "object",
+            "additionalProperties": {
+                "location": "json"
+            }
+        },
+        "ResponseTextObject": {
+            "type": "object",
+            "properties": {
+                "text": {
+                    "location": "body"
+                }
+            }
+        },
+        "ResponseListObject": {
+            "type": "object",
+            "location": "json",
+            "additionalProperties": {
+                "location": "json",
+                "name": "items"
+            },
+            "properties": {
+                "Link": {
+                    "location": "link"
+                }
+            }
+        }
+    }
+}

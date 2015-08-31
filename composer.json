@@ -1,0 +1,18 @@
+{
+    "name": "nediam/phraseapp-lib",
+    "authors": [
+        {
+            "name": "nediam"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "nediam\\PhraseApp\\": "src"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle-services": "dev-master",
+        "electrolinux/phpquery": "dev-master"
+    }
+}
