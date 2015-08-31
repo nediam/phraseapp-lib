@@ -12,7 +12,6 @@
         }
     },
     "require": {
-        "guzzlehttp/guzzle-services": "dev-master",
-        "electrolinux/phpquery": "dev-master"
+        "guzzlehttp/guzzle-services": "dev-master"
     }
 }
