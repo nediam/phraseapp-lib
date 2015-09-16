@@ -12,6 +12,6 @@
         }
     },
     "require": {
-        "guzzlehttp/guzzle-services": "dev-master"
+        "guzzlehttp/guzzle-services": "0.5.*"
     }
 }
