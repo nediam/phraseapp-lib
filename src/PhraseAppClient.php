@@ -66,7 +66,6 @@ class PhraseAppClient
         $args = array_merge($this->getDefaultArgs(), $args);
 
         $command = $this->guzzleClient->getCommand($name, $args);
-        $command->getEmitter()->attach(new HandleErrorResponse);
 
         $response = $this->guzzleClient->execute($command);
 
