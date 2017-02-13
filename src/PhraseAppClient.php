@@ -4,10 +4,7 @@ namespace nediam\PhraseApp;
 use GuzzleHttp\Client;
 use GuzzleHttp\Command\Guzzle\Description;
 use GuzzleHttp\Command\Guzzle\GuzzleClient;
-use GuzzleHttp\Command\Guzzle\Subscriber\HandleErrorResponse;
-use GuzzleHttp\Ring\Future\FutureInterface;
-use nediam\PhraseApp\ResponseLocation\LinkLocation;
-use nediam\PhraseApp\Subscriber\ProcessResponse;
+use GuzzleHttp\Command\ResultInterface;
 
 /**
  * @author  nediam
@@ -43,14 +40,7 @@ class PhraseAppClient
 
         $client             = new Client();
         $description        = new Description($serviceDescription);
-        $this->guzzleClient = new GuzzleClient($client, $description, [
-            'defaults' => [],
-            'process'  => false,
-        ]);
-
-        $this->guzzleClient->getEmitter()->attach(new ProcessResponse($description, [
-            'link' => new LinkLocation('link'),
-        ]));
+        $this->guzzleClient = new GuzzleClient($client, $description);
 
         $this->token = $token;
     }
@@ -59,7 +49,7 @@ class PhraseAppClient
      * @param string $name
      * @param array  $args
      *
-     * @return FutureInterface|mixed|null
+     * @return ResultInterface|mixed|null
      */
     public function request($name, array $args = [])
     {

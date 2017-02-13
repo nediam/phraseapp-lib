@@ -12,6 +12,7 @@
         }
     },
     "require": {
-        "guzzlehttp/guzzle-services": "0.5.*"
+        "guzzlehttp/guzzle": "^6.2",
+        "guzzlehttp/guzzle-services": "^1.1"
     }
 }
